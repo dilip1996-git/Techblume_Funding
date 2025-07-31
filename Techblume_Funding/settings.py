@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1:8000',]
 
 
 
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'Techblume_Funding.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Templates'],
+        'DIRS': [BASE_DIR/ 'Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # For development
-STATIC_ROOT = BASE_DIR / 'staticfiles'    # For collectstatic in production
+STATIC_ROOT = os.path.join( BASE_DIR / 'staticfiles')    # For collectstatic in production
 
 
 # Default primary key field type
